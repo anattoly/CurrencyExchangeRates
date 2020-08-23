@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Sign In and Sign Up Page - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="style.css"></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function checkPasswordMatch() {
+            var password = $("#reg-password").val();
+            var confirmPassword = $("#reg-password-confirm").val();
+            if (password != confirmPassword)
+                $("#CheckPasswordMatch").html("Passwords does not match!".fontcolor("red"));
+            else
+                $("#CheckPasswordMatch").html("Passwords match.".fontcolor("green"));
+        }
+
+        $(document).ready(function () {
+            $("#reg-password-confirm").keyup(checkPasswordMatch);
+        });
+    </script>
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container pb-5 mb-sm-4">
+    <div class="row pt-5">
+        <div class="col-md-6 pt-5 pt-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Register new account</h2>
+                    <hr>
+                    <div th:class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}"></div>
+                    <form class="needs-validation" role="form" method="POST" th:action="@{/signup}" th:object="${user}">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-fn">First Name</label>
+                                    <input class="form-control" type="text" required="" id="reg-fn"
+                                           th:field="*{firstName}">
+                                    <div class="invalid-feedback">Please enter your first name!</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-ln">Last Name</label>
+                                    <input class="form-control" type="text" required="" id="reg-ln"
+                                           th:field="*{lastName}">
+                                    <div class="invalid-feedback">Please enter your last name!</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Login</label>
+                                    <input class="form-control" required="" id="login" th:field="*{login}">
+                                    <div class="form-control-feedback">
+                         <span class="text-danger align-middle" th:if="${#fields.hasErrors('login')}"
+                               th:errors="*{login}">
+                         </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-ln">Middle Name</label>
+                                    <input class="form-control" type="text" required="" id="reg-mn"
+                                           th:field="*{middleName}">
+                                    <div class="invalid-feedback">Please enter your middle name!</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-password">Password</label>
+                                    <input class="form-control" type="password" required="" id="reg-password"
+                                           th:field="*{password}">
+                                    <div class="invalid-feedback">Please enter password!</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="reg-password-confirm">Confirm Password</label>
+                                    <input class="form-control" type="password" required="" id="reg-password-confirm">
+                                    <div class="registrationFormAlert" id="CheckPasswordMatch"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="pull-left">Do you have an account? <a class="nav-link-inline font-size-sm"
+                                                                               th:href="@{/login}"> Login</a></span>
+                            <button class="btn btn-primary" type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
