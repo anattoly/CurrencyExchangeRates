@@ -1,6 +1,6 @@
 package com.anattoly.exchanger.controller;
 
-import com.anattoly.exchanger.model.User;
+import com.anattoly.exchanger.model.user.User;
 import com.anattoly.exchanger.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,20 +22,20 @@ public class UserController {
     }
 
     @GetMapping({"/", "/login"})
-    public String signin(){
+    public String signin() {
 
         return "login";
     }
 
     @GetMapping("/signup")
-    public String signup(Model model){
+    public String signup(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "signup";
     }
 
     @PostMapping("/signup")
-    public String createUser(Model model, @Valid User user, BindingResult bindingResult){
+    public String createUser(Model model, @Valid User user, BindingResult bindingResult) {
 
         if (!userService.saveUser(user)) {
             bindingResult.rejectValue("login", "error.user", "This login already exists!");
@@ -48,5 +48,10 @@ public class UserController {
         }
 
         return "redirect:/login";
+    }
+
+    @GetMapping("/access_denied")
+    public String accessDenied() {
+        return "access_denied";
     }
 }

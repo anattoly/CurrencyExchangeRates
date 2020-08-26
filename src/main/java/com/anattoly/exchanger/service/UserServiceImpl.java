@@ -1,7 +1,7 @@
 package com.anattoly.exchanger.service;
 
-import com.anattoly.exchanger.model.Role;
-import com.anattoly.exchanger.model.User;
+import com.anattoly.exchanger.model.user.Role;
+import com.anattoly.exchanger.model.user.User;
 import com.anattoly.exchanger.repository.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,11 +20,12 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
+    @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepo.findUserByLogin(username);
     }
 
+    @Override
     public boolean saveUser(User user) {
         User addToDB = userRepo.findUserByLogin(user.getLogin());
 
