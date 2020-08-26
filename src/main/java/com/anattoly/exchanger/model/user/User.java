@@ -1,4 +1,4 @@
-package com.anattoly.exchanger.model;
+package com.anattoly.exchanger.model.user;
 
 import org.hibernate.annotations.SQLInsert;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,8 +1,7 @@
 package com.anattoly.exchanger.repository;
 
-import com.anattoly.exchanger.model.User;
+import com.anattoly.exchanger.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 @Repository
