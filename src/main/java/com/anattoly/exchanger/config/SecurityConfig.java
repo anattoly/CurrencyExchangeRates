@@ -32,17 +32,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/console/**").permitAll()
-                .antMatchers("/currencies/**").hasAuthority("ADMIN").anyRequest()
+                .antMatchers("/live-rates/**").hasAuthority("USER").anyRequest()
                 .authenticated().and().csrf().disable()
                 .headers().frameOptions().disable()
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/home/home")
-                .usernameParameter("email")
+                .defaultSuccessUrl("/live-rates")
+                .usernameParameter("login")
                 .passwordParameter("password")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
+                .and().rememberMe()
                 .and().exceptionHandling().accessDeniedPage("/access_denied");
     }
 
