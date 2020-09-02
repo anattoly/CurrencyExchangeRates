@@ -1,7 +1,7 @@
 package com.anattoly.exchanger.controller;
 
 import com.anattoly.exchanger.model.user.User;
-import com.anattoly.exchanger.service.UserService;
+import com.anattoly.exchanger.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

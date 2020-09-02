@@ -1,4 +1,4 @@
-package com.anattoly.exchanger.service;
+package com.anattoly.exchanger.service.user;
 
 import com.anattoly.exchanger.model.user.User;
 import org.springframework.security.core.userdetails.UserDetailsService;

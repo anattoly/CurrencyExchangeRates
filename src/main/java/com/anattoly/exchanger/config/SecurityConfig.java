@@ -1,6 +1,6 @@
 package com.anattoly.exchanger.config;
 
-import com.anattoly.exchanger.service.UserService;
+import com.anattoly.exchanger.service.user.UserService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
