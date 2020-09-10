@@ -27,8 +27,8 @@ public class CurrencyRatesServiceImpl implements CurrencyRatesService {
     @Value("${api.url.historical}")
     private String api_url_historical;
 
-    @Value("${currency.filter}")
-    private String currency_filter;
+    @Value("${currency.symbols}")
+    private String currency_symbols;
 
     @Value("${app.day.of.currency.rates}")
     private Integer countDays;
@@ -70,7 +70,7 @@ public class CurrencyRatesServiceImpl implements CurrencyRatesService {
             }
         }
 
-        String[] currencyFilteredList = currency_filter.split(", ");
+        String[] currencyFilteredList = currency_symbols.split(", ");
 
         /*filling map for table rates*/
         for (String abbreviation : currencyFilteredList) {

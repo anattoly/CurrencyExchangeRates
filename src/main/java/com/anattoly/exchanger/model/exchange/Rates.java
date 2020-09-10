@@ -1,8 +1,11 @@
 package com.anattoly.exchanger.model.exchange;
 
+import javax.persistence.Entity;
 import java.util.Map;
 
+@Entity
 public class Rates {
+    private Long id;
     private Currency baseCurrency;
     private Map<Currency, Double> rates;
     private Long timestamp;
@@ -11,6 +14,14 @@ public class Rates {
         this.baseCurrency = baseCurrency;
         this.rates = rates;
         this.timestamp = timestamp;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Currency getBaseCurrency() {
